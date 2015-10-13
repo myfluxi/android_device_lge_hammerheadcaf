@@ -26,7 +26,7 @@ TARGET_NO_BOOTLOADER := true
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 2048
 
-BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=hammerhead user_debug=31 msm_watchdog_v2.enable=1 mdss_mdp.panel=dsi androidboot.bootdevice=msm_sdcc.1
+BOARD_KERNEL_CMDLINE := console=ttyHSL0,115200,n8 androidboot.hardware=hammerhead user_debug=31 msm_watchdog_v2.enable=1 mdss_mdp.panel=dsi androidboot.bootdevice=msm_sdcc.1 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x02900000 --tags_offset 0x02700000
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
@@ -99,6 +99,8 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 734003200
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 131072
 
+BOARD_CANT_BUILD_RECOVERY_FROM_BOOT_PATCH := true
+
 BOARD_CHARGER_ENABLE_SUSPEND := true
 BOARD_CHARGER_SHOW_PERCENTAGE := true
 
@@ -120,50 +122,19 @@ include device/qcom/sepolicy/sepolicy.mk
 BOARD_SEPOLICY_DIRS += \
     device/lge/hammerheadcaf/sepolicy
 
-BOARD_SEPOLICY_UNION += \
-    app.te \
-    bluetooth.te \
-    bluetooth_loader.te \
-    bridge.te \
-    file.te \
-    healthd.te \
-    hostapd.te \
-    mediaserver.te \
-    mm-qcamerad.te \
-    mpdecision.te \
-    netmgrd.te \
-    platform_app.te \
-    qmuxd.te \
-    qseecomd.te \
-    radio.te \
-    rild.te \
-    rmt_storage.te \
-    sensors.te \
-    subsystem_ramdump.te \
-    system_app.te \
-    system_server.te \
-    thermal-engine.te \
-    ueventd.te \
-    untrusted_app.te \
-    vold.te \
-    vss.te \
-    wpa.te \
-    file_contexts \
-    genfs_contexts
-
 HAVE_ADRENO_SOURCE:= false
 
 OVERRIDE_RS_DRIVER:= libRSDriver_adreno.so
 TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
 
-# Local QCOM PowerHAL
-TARGET_POWERHAL_VARIANT := hammerhead
+# PowerHAL
+#TARGET_POWERHAL_VARIANT := hammerhead
 
 USE_DEVICE_SPECIFIC_QCOM_PROPRIETARY:= true
 USE_DEVICE_SPECIFIC_CAMERA:= true
 
 # HW crypto
-TARGET_HW_DISK_ENCRYPTION := true
+#TARGET_HW_DISK_ENCRYPTION := true
 
 # Recovery
 RECOVERY_FSTAB_VERSION := 2
