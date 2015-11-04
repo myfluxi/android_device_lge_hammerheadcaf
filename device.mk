@@ -296,10 +296,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.qti.sensors.tilt=false \
     ro.qti.sensors.amd=false \
     ro.qti.sensors.rmd=false \
-    ro.qti.sensors.vmd=false \
+    ro.qti.sensors.vmd=true \
     ro.qti.sensors.pedometer=false \
     ro.qti.sensors.pam=false \
-    ro.qti.sdk.sensors.gestures=false
+    ro.qti.sdk.sensors.gestures=true \
+    ro.qti.sensors.tilt_detector=true \
+    ro.qti.sensors.scrn_ortn=false \
+    ro.qti.sensors.bte=true \
+    ro.qti.sensors.gtap=true
 
 # Doze mode
 PRODUCT_PACKAGES += \
