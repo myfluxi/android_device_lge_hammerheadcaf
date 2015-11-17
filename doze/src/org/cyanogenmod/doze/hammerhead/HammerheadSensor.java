@@ -38,7 +38,7 @@ public abstract class HammerheadSensor {
 
     private static final int SENSOR_WAKELOCK_DURATION = 200;
 
-    protected static final int BATCH_LATENCY_IN_MS = 100;
+    private static final int BATCH_LATENCY_IN_MS = 100;
 
     protected Context mContext;
     protected PowerManager mPowerManager;
