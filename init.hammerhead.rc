@@ -179,6 +179,8 @@ on post-fs-data
     mkdir /data/system/perfd 0770 root system
     chmod 2770 /data/system/perfd
 
+    mkdir /data/audio/ 0770 media audio
+
     # Hardware tunables
     chown system system /sys/devices/virtual/timed_output/vibrator/amp
     chmod 0664 /sys/devices/virtual/timed_output/vibrator/amp
