@@ -132,6 +132,9 @@ on boot
 on post-fs-data
     write /sys/kernel/boot_adsp/boot 1
 
+    # Create directory for TZ Apps
+    mkdir /data/misc/qsee 0770 system system
+
     # NFC: create data/nfc for nv storage
     mkdir /data/nfc 0770 nfc nfc
     mkdir /data/nfc/param 0770 nfc nfc
