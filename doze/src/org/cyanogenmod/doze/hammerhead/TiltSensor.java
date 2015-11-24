@@ -37,6 +37,19 @@ public class TiltSensor extends HammerheadSensor {
     }
 
     @Override
+    public void enable() {
+        if (DEBUG) Log.d(TAG, "Enabling");
+        super.enable();
+        mEntryTimestamp = SystemClock.elapsedRealtime();
+    }
+
+    @Override
+    public void disable() {
+        if (DEBUG) Log.d(TAG, "Disabling");
+        super.disable();
+    }
+
+    @Override
     protected void onSensorEvent(SensorEvent event) {
         if (DEBUG) Log.d(TAG, "Got sensor event: " + event.values[0]);
 

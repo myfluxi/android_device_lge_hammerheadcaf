@@ -28,8 +28,6 @@ public class AccelSensor extends HammerheadSensor {
 
     private static final int ACCELERATION_FORCE_Y_MIN = 5;
 
-    private ProximitySensor mProxSensor;
-
     public AccelSensor(Context context) {
         super(context, Sensor.TYPE_ACCELEROMETER);
     }
@@ -51,8 +49,7 @@ public class AccelSensor extends HammerheadSensor {
         if (DEBUG) Log.d(TAG, "Got sensor event: y = " + event.values[1]);
 
         if (event.values[1] > ACCELERATION_FORCE_Y_MIN) {
-            mProxSensor = new ProximitySensor(mContext);
-            mProxSensor.enable();
+            launchDozePulse();
         }
 
 	disable();
