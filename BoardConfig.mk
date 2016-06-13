@@ -110,6 +110,8 @@ COMMON_GLOBAL_CPPFLAGS += -DNO_SECURE_DISCARD
 
 BOARD_CHARGER_ENABLE_SUSPEND := true
 
+TARGET_INIT_VENDOR_LIB := libinit_hammerhead
+
 TARGET_RECOVERY_FSTAB = device/lge/hammerheadcaf/fstab.hammerhead
 
 # Releasetools
