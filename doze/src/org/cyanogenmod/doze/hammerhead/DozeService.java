@@ -35,7 +35,6 @@ public class DozeService extends Service {
 
     private Context mContext;
     private TiltSensor mTiltSensor;
-    private ProximitySensor mProximitySensor;
 
     @Override
     public void onCreate() {
@@ -43,7 +42,6 @@ public class DozeService extends Service {
         super.onCreate();
         mContext = this;
         mTiltSensor = new TiltSensor(mContext);
-        mProximitySensor = new ProximitySensor(mContext);
     }
 
     @Override
@@ -60,7 +58,6 @@ public class DozeService extends Service {
         if (DEBUG) Log.d(TAG, "Destroying service");
         super.onDestroy();
         mTiltSensor.disable();
-        mProximitySensor.disable();
     }
 
     @Override
@@ -76,14 +73,12 @@ public class DozeService extends Service {
     private void onDisplayOn() {
         if (DEBUG) Log.d(TAG, "Display on");
         mTiltSensor.disable();
-        mProximitySensor.disable();
     }
 
     private void onDisplayOff() {
         if (DEBUG) Log.d(TAG, "Display off");
         if (isDozeEnabled()) {
             mTiltSensor.enable();
-            mProximitySensor.enable();
         }
     }
 
