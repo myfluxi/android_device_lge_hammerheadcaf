@@ -33,7 +33,7 @@ fi
 
 
 BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
-#rm -rf $BASE/*
+rm -rf $BASE/*
 
 
 for FILE in `cat proprietary-blobs.txt | grep -v ^# | grep -v ^$ | sed -e 's#^/system/##g' | sed -e "s#^-/system/##g"`; do
@@ -57,4 +57,4 @@ for FILE in `cat proprietary-blobs.txt | grep -v ^# | grep -v ^$ | sed -e 's#^/s
     fi
 done
 
-#./setup-makefiles.sh
+./setup-makefiles.sh
